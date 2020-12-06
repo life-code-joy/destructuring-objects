@@ -25,16 +25,45 @@ const restaurant = {
   order: function (starterIndex, mainIndex) {
     return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
   },
+  orderDelivery: function({starterIndex,mainIndex,time,address}){
+    console.log(`Order received ${this.starterMenu[starter.starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time}`);
+  }
 };
+
+restaurant.orderDelivery({time: '20:30', address:'20 Raviolli Ave', mainIndex:2, starterIndex: 2} );
 
 const { name, openingHours, categories } = restaurant;
 
 //re-asign variable names
 const {
   name: resNames = CI,
-  openingHours: businessHours = BH,
+  openingHours: businessHours,
   categories: foodStuff,
   prices,
 } = restaurant;
 
-console.log(resNames, businessHours, foodStuff, prices);
+console.log(businessHours);
+
+// console.log(resNames, businessHours, foodStuff, prices);
+
+//mutating variables
+let a = 111;
+let b = 999;
+let c = 231;
+
+const obj = {a:23, b:45, c:33};
+
+// you must wrap in brackets or you wull get an error
+({a,b} = obj);
+
+console.log(a, b, c);
+
+// nested items 
+const {fri: {open,  close}} = businessHours;
+console.log(open, close);
+
+//nested + resign
+const {fri: {open: o,  close: cl}} = businessHours;
+console.log(o, cl);
+
+
